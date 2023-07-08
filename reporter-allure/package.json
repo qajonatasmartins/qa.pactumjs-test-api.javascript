@@ -1,0 +1,20 @@
+{
+  "name": "reporter-allure",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf allure-report & rimraf allure-results",
+    "test": "npm run clean && mocha ./tests/**/**.js --reporter mocha-allure-reporter && npm run allure-report-gen",
+    "allure-report-gen": "npx allure generate ./allure-results && allure open"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "allure-commandline": "^2.23.0",
+    "mocha": "^10.2.0",
+    "mocha-allure-reporter": "^1.4.0",
+    "pactum": "^3.4.1",
+    "rimraf": "^5.0.1"
+  }
+}
