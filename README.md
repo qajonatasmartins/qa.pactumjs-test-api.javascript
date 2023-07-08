@@ -1,1 +1,0 @@
-# qa.pactumjs-test-api.javascript
