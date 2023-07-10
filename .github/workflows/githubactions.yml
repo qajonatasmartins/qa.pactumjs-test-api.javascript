@@ -1,0 +1,51 @@
+name: Testes de API com PactumJS
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v2
+
+      - name: Configuração do Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+
+      - name: Instalação das dependências
+        run: npm ci
+
+      - name: Execução dos testes Data-Management
+        run: npm run data_management_test
+      - name: Execução dos testes E2E
+        run: npm run test_e2e
+      - name: Execução dos testes MOCK
+        run: npm run test_mock
+      - name: Execução dos testes Report Allure
+        run: npm run test_allure
+      - name: Execução dos testes Report Mochawesome
+        run: npm run test_mochawesome
+
+      - name: Publicação do relatório de teste mochawesome
+        uses: actions/upload-artifact@v2
+        with:
+          name: Relatório de Teste
+          path: ./path/para/relatório
+      
+      - name: Agrupamento das pastas de relatório allure
+        run: zip -r reports.zip ./path/allure-report ./path/allure-results
+
+      - name: Publicação do relatório de teste allure
+        uses: actions/upload-artifact@v2
+        with:
+          name: Relatório de Teste
+          path: ./reports.zip
