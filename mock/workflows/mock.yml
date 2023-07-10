@@ -27,8 +27,4 @@ jobs:
       - name: Execução dos testes
         run: npm run test
 
-      - name: Publicação do relatório de teste
-        uses: actions/upload-artifact@v2
-        with:
-          name: Relatório de Teste
-          path: ./path/para/relatório
+
