@@ -19,22 +19,14 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: 16.13.x
+          node-version: 18.x.x
           cache: npm
-
-      - name: Instalação das dependências
-        run: npm ci
-
-      - name: Execução dos testes Data-Management
-        run: npm run data_management_test
-      - name: Execução dos testes E2E
-        run: npm run test_e2e
-      - name: Execução dos testes MOCK
-        run: npm run test_mock
-      - name: Execução dos testes Report Allure
-        run: npm run test_allure
-      - name: Execução dos testes Report Mochawesome
-        run: npm run test_mochawesome
+      - run: npm install
+      - run: npm run data_management_test
+      - run: npm run test_e2e
+      - run: npm run test_mock
+      - run: npm run test_allure
+      - run: npm run test_mochawesome
 
       - name: Publicação do relatório de teste mochawesome
         uses: actions/upload-artifact@v2
