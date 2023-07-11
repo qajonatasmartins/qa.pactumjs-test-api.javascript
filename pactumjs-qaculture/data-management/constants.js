@@ -5,7 +5,7 @@ const { request, stash, spec } = require('pactum'),
 request.setBaseUrl('$M{Environments.Production}')
 request.setDefaultTimeout(10000)
 /** loadData - Carrega modelos de dados e mapas de dados do sistema de arquivos */
-stash.loadData('./data-management/data')
+stash.loadData('./pactumjs-qaculture/data-management/data')
 
 module.exports = {
     _spec
