@@ -30,6 +30,19 @@ function mockAPI() {
             }
         }
     })
+
+    mock.addInteraction({
+        request: {
+            method: 'DELETE',
+            path: '/api/users',
+            body: {
+                name: "snow"
+            }
+        },
+        response: {
+            status: 200
+        }
+    })
 }
 
 describe('Teste end-2-End', () => {
@@ -51,6 +64,12 @@ describe('Teste end-2-End', () => {
                 "name": "snow"
             })
             .expectStatus(200)
+            .clean() /** Etapa para ser executada no final quando chamar o cleanup */
+            .delete('http://localhost:9877/api/users')
+            .withJson({
+                "name": "snow"
+            })
+            .expectStatus(200)
     })
 
     it('Buscar Usuario', async () => {
@@ -61,6 +80,10 @@ describe('Teste end-2-End', () => {
             .expectJson({
                 "name": "snow"
             })
+    })
+
+    it('Excluir Usuario', async () => {
+        await test_case.cleanup() /** Executa a limpeza do usuário */
     })
 
     after(async () => {

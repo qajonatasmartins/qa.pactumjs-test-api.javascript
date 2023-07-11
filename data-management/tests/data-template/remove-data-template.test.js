@@ -1,4 +1,5 @@
-const { stash, spec } = require('pactum')
+const { stash } = require('pactum'),
+    { _spec } = require('../../constants')
 
 stash.addDataTemplate({
     'Address': {
@@ -20,15 +21,14 @@ stash.addDataTemplate({
 describe('Usando Data-Template PactumJS', () => {
 
     it('Deve registrar um usuário usando REMOVES Data-Template', async () => {
-        await spec()
-            .post('https://httpbin.org/anything')
+        await _spec()
+            .post('/api/users')
             .withJson({
-                '@DATA:TEMPLATE@': 'User', /** Usou o template de User, mas ... */
-                '@REMOVES@': ['job'] /** Apagou o atributo 'Job' */
+                '@DATA:TEMPLATE@': 'User',
+                '@REMOVES@': ['job'] /** Apagou o atributo 'Job' no envio do payload */
             })
-            .expectStatus(200)
-            .expectBodyContains({
-                address: { pin: 500500, street: 'society road' },
+            .expectStatus(201)
+            .expectJsonLike({
                 name: 'morpheus'
             })
     })

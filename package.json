@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "data_management_test": "mocha ./data-management/tests/**/**.test.js --reporter spec --timeout 5000",
+    "data_function": "mocha ./data-management/tests/data-function/**.test.js --reporter spec --timeout 5000",
+    "data_map": "mocha ./data-management/tests/data-map/**.test.js --reporter spec --timeout 5000",
+    "data_store": "mocha ./data-management/tests/data-store/**.test.js --reporter spec --timeout 5000",
+    "data_template": "mocha ./data-management/tests/data-template/**.test.js --reporter spec --timeout 5000",
+    "data_loading": "mocha ./data-management/tests/loading-data/**.test.js --reporter spec --timeout 5000",
     "test_e2e": "mocha ./e2e/tests/**/**.test.js --reporter spec --timeout 5000",
     "test_mock": "mocha ./mock/tests/**/**.test.js --reporter spec --timeout 5000",
     "clean": "rimraf allure-report & rimraf allure-results",

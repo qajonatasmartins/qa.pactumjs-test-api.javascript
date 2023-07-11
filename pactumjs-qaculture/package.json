@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "PactumJS with Mocha",
   "license": "MIT",
+  "main": "index.js",
   "devDependencies": {
-    "mocha": "latest",
-    "pactum": "latest"
+    "mocha": "^10.2.0",
+    "pactum": "^3.4.1",
+    "mochawesome": "^7.1.3"
   },
   "scripts": {
     "test1": "mocha ./**/exemplo1.js --reporter spec",

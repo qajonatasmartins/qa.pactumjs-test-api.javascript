@@ -3,7 +3,7 @@ module.exports = {
   'reporter-option': [
     'json=true', 'reportDir=report',
     'reportFilename=api-test', 'autoOpen=false', /* para abrir o relatório do mochawesome altere para 'true' */
-    'reportPageTitle=Tangerino', 'reportTitle=Vacation API',
+    'reportPageTitle=QACULTURE', 'reportTitle=QA Culture PactumJS',
     'charts=true'
   ],
   ui: 'bdd',

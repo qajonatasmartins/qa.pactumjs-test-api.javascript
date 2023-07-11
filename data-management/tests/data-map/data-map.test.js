@@ -1,4 +1,5 @@
-const { stash, spec } = require('pactum')
+const { stash } = require('pactum'),
+    { _spec } = require('../../constants')
 
 stash.addDataMap({
     'other': {
@@ -32,14 +33,14 @@ stash.addDataTemplate({
 describe('Usando Data Map PactumJS', () => {
 
     it('Deve registrar um usuário usando REMOVES Data-Template e Data Map', async () => {
-        await spec()
-            .post('https://httpbin.org/anything')
+        await _spec()
+            .post('/api/users')
             .withJson({
-                '@DATA:TEMPLATE@': 'User', /** Usou o template de User, mas ... */
-                '@REMOVES@': ['job'] /** Apagou o atributo 'Job' */
+                '@DATA:TEMPLATE@': 'User',
+                '@REMOVES@': ['job'] /** Apagou o atributo 'Job' no envio do payload */
             })
-            .expectStatus(200)
-            .expectBodyContains({
+            .expectStatus(201)
+            .expectJsonLike({
                 address: { pin: 500500, street: 'society road' },
                 name: 'jonatas'
             })
