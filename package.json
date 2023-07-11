@@ -16,8 +16,7 @@
     "clean": "rimraf allure-report & rimraf allure-results",
     "allure": "npm run clean && mocha ./**/**/**/**.test.js --reporter mocha-allure-reporter && npm run allure-generation",
     "allure-generation": "npx allure generate ./allure-results",
-    "allure-open": "npx allure open",
-    "mochawesome": "mocha --spec ./reporter-mochawesome/**.test.js --reporter mochawesome --require mochawesome/register"
+    "allure-open": "npx allure open"
   },
   "author": "",
   "license": "ISC",
