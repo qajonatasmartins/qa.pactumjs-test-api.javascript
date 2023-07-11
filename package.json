@@ -15,7 +15,10 @@
     "test_allure": "npm run clean && mocha ./reporter-allure/tests/**/**.test.js --reporter mocha-allure-reporter && npm run allure-report-gen",
     "allure-report-gen": "npx allure generate ./allure-results",
     "allure-report-open": "npx allure open",
-    "test_mochawesome": "mocha --spec ./reporter-mochawesome/tests/**.js --reporter mochawesome --require mochawesome/register"
+    "test_mochawesome": "mocha --spec ./reporter-mochawesome/tests/**.js --reporter mochawesome --require mochawesome/register",
+    "test1": "mocha ./pactumjs-qaculture/exemplo1.js --reporter mochawesome --require mochawesome/register",
+    "test2": "mocha ./pactumjs-qaculture/exemplo2.js --reporter mochawesome --require mochawesome/register",
+    "test3": "mocha ./pactumjs-qaculture/exemplo3.js --reporter mochawesome --require mochawesome/register"
   },
   "author": "",
   "license": "ISC",

@@ -1,29 +1,29 @@
-const { stash } = require('pactum'),
-    { _spec } = require('../../constants')
+const { _spec } = require('../../constants')
+// , { stash } = require('pactum')
 
-stash.addDataMap({
-    'other': {
-        'name': 'jonatas',
-        'job': 'qa lead'
-    }
-})
+// stash.addDataMap({
+//     'other': {
+//         'name': 'jonatas',
+//         'job': 'qa lead'
+//     }
+// })
 
-stash.addDataTemplate({
-    'Address': {
-        "street": "society road",
-        "pin": 500500
-    }
-})
+// stash.addDataTemplate({
+//     'Address': {
+//         "street": "society road",
+//         "pin": 500500
+//     }
+// })
 
-stash.addDataTemplate({
-    'User': {
-        "name": "$M{other.name}", /** Pegou o valor de 'jonatas' e atribuiu no lugar de '$M{other.name}' */
-        "job": "$M{other.job}",/** Pegou o valor de 'qa lead' e atribuiu no lugar de '$M{other.job}' */
-        "address": {
-            "@DATA:TEMPLATE@": "Address", /** Adicionou o template de 'Address' */
-        }
-    }
-})
+// stash.addDataTemplate({
+//     'User': {
+//         "name": "$M{other.name}", /** Pegou o valor de 'jonatas' e atribuiu no lugar de '$M{other.name}' */
+//         "job": "$M{other.job}",/** Pegou o valor de 'qa lead' e atribuiu no lugar de '$M{other.job}' */
+//         "address": {
+//             "@DATA:TEMPLATE@": "Address", /** Adicionou o template de 'Address' */
+//         }
+//     }
+// })
 
 /**
  * Quando um modelo de dados é usado, o objeto atual será substituído.
@@ -36,7 +36,7 @@ describe('Usando Data Map PactumJS', () => {
         await _spec()
             .post('/api/users')
             .withJson({
-                '@DATA:TEMPLATE@': 'User',
+                '@DATA:TEMPLATE@': 'UserDataMap',
                 '@REMOVES@': ['job'] /** Apagou o atributo 'Job' no envio do payload */
             })
             .expectStatus(201)

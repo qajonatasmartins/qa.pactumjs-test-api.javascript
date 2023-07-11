@@ -1,4 +1,4 @@
-const { stash, handler } = require('pactum'),
+const { /* stash, */ handler } = require('pactum'),
     { faker } = require('@faker-js/faker'),
     { expression } = require('pactum-matchers'),
     { _spec } = require('../../constants')
@@ -7,12 +7,12 @@ handler.addDataFuncHandler('GerarNome', () => {
     return faker.person.firstName()
 })
 
-stash.addDataTemplate({
-    'User': {
-        "name": "$F{GerarNome}", /** Criei uma função para retornar um nome */
-        "job": "leader"
-    }
-})
+// stash.addDataTemplate({
+//     'Users:dataFuntion': {
+//         "name": "$F{GerarNome}", /** Criei uma função para retornar um nome */
+//         "job": "leader"
+//     }
+// })
 
 describe('Usando Data-Function PactumJS', () => {
 
@@ -20,7 +20,7 @@ describe('Usando Data-Function PactumJS', () => {
         await _spec()
             .post('/api/users')
             .withJson({
-                '@DATA:TEMPLATE@': 'User',
+                '@DATA:TEMPLATE@': 'Users:dataFuntion',
             })
             .expectStatus(201)
             .expectJsonMatch({ /** Usa o expectJsonMatch para poder usar os Matchs */

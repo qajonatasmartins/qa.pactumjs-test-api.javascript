@@ -1,12 +1,12 @@
-const { stash } = require('pactum'),
-    { _spec } = require('../../constants')
+const { _spec } = require('../../constants')
+// ,{ stash } = require('pactum')
 
-stash.addDataTemplate({
-    'User': {
-        "name": "morpheus",
-        "job": "leader"
-    }
-})
+// stash.addDataTemplate({
+//     'User:morpheus': {
+//         "name": "morpheus",
+//         "job": "leader"
+//     }
+// })
 
 describe('Usando Data-Template PactumJS', () => {
 
@@ -14,7 +14,7 @@ describe('Usando Data-Template PactumJS', () => {
         await _spec()
             .post('/api/users')
             .withJson({
-                '@DATA:TEMPLATE@': 'User',
+                '@DATA:TEMPLATE@': 'User:morpheus',
                 '@OVERRIDES@': { /** Usado o '@OVERRIDES@' para definir que aquele template vc quer subistituir somente o atributo job por 'meber' */
                     'job': 'member'
                 }
