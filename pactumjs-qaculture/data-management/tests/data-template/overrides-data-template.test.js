@@ -8,7 +8,7 @@ const { _spec } = require('../../constants')
 //     }
 // })
 
-describe('Usando Data-Template PactumJS', () => {
+describe('Data-Template PactumJS', () => {
 
     it('Deve registrar um usuário usando OVERRIDES Data-Template', async () => {
         await _spec()

@@ -1,5 +1,6 @@
 node_modules
 package-lock.json
 report
-allure**
+allure-results
+allure-report
 **/yarn.lock

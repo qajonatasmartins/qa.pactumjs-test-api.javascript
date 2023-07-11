@@ -1,8 +1,8 @@
 const { spec } = require('pactum')
 
-describe('Usando Data-Store PactumJS', () => {
+describe('Data-Store PactumJS', () => {
 
-  it('Deve retornar todas as postagens e a primeira postagem deve ter comentários', async () => {
+  it('Deve retornar todas as postagens e a primeira postagem Deve ter comentários', async () => {
     await spec()
       .get('http://jsonplaceholder.typicode.com/posts')
       .expectStatus(200)

@@ -14,7 +14,7 @@ function mockAPI() {
     })
 }
 
-describe('Rodando testes com Mock', () => {
+describe('Mock', () => {
 
     beforeEach(async () => {
 

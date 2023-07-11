@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "mocha ./pactumjs-qaculture/**/**/**.test.js --reporter mochawesome --require mochawesome/register",
     "test1": "mocha ./pactumjs-qaculture/exemplo1.test.js --reporter mochawesome --require mochawesome/register",
     "test2": "mocha ./pactumjs-qaculture/exemplo2.test.js --reporter mochawesome --require mochawesome/register",
     "data_template": "mocha ./pactumjs-qaculture/data-management/tests/data-template/**.test.js --reporter mochawesome --require mochawesome/register",
@@ -13,7 +14,7 @@
     "e2e": "mocha ./pactumjs-qaculture/e2e/**.test.js --reporter mochawesome --require mochawesome/register",
     "test_mock": "mocha ./pactumjs-qaculture/mock/**.test.js --reporter mochawesome --require mochawesome/register",
     "clean": "rimraf allure-report & rimraf allure-results",
-    "allure": "npm run clean && mocha ./reporter-allure/**.test.js --reporter mocha-allure-reporter && npm run allure-generation",
+    "allure": "npm run clean && mocha ./**/**/**/**.test.js --reporter mocha-allure-reporter && npm run allure-generation",
     "allure-generation": "npx allure generate ./allure-results",
     "allure-open": "npx allure open",
     "mochawesome": "mocha --spec ./reporter-mochawesome/**.test.js --reporter mochawesome --require mochawesome/register"

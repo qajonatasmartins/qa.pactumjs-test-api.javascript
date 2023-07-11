@@ -14,7 +14,7 @@ handler.addDataFuncHandler('GerarNome', () => {
 //     }
 // })
 
-describe('Usando Data-Function PactumJS', () => {
+describe('Data-Function PactumJS', () => {
 
     it('Deve registrar um usuário usando Data-Function', async () => {
         await _spec()

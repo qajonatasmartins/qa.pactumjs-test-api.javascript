@@ -30,7 +30,7 @@ const { _spec } = require('../../constants')
  * Quando um mapa de dados é usado, o valor da propriedade do objeto atual será substituído.
  */
 
-describe('Usando Data Map PactumJS', () => {
+describe('Data Map PactumJS', () => {
 
     it('Deve registrar um usuário usando REMOVES Data-Template e Data Map', async () => {
         await _spec()
