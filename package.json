@@ -9,7 +9,8 @@
     "test_mock": "mocha ./mock/tests/**/**.test.js --reporter spec --timeout 5000",
     "clean": "rimraf allure-report & rimraf allure-results",
     "test_allure": "npm run clean && mocha ./reporter-allure/tests/**/**.test.js --reporter mocha-allure-reporter && npm run allure-report-gen",
-    "allure-report-gen": "npx allure generate ./allure-results && allure open",
+    "allure-report-gen": "npx allure generate ./allure-results",
+    "allure-report-open": "npx allure open",
     "test_mochawesome": "mocha --spec ./reporter-mochawesome/tests/**.js --reporter mochawesome --require mochawesome/register"
   },
   "author": "",
